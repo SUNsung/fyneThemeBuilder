@@ -192,7 +192,7 @@ myWindow.ShowAndRun()
 - the topic is saved to a file when closing
 - when opening the file, if the topic has been read, the read topic is applied, otherwise the default topic is used.
 
-#### a light window that after 5 seconds will change the background color to blue
+#### Light window that after 5 seconds will change the background color to blue
 ```go
 myApp := app.New()
 myWindow := myApp.NewWindow("window name")

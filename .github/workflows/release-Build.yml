@@ -60,7 +60,6 @@ jobs:
           git config --local user.name "GitHub Action"
           
           new_version=$(./_run/scripts/sys.sh --increment --minor)
-          bash ./_run/scripts/creator_const_Go.sh
           
           git add ./_run/values/ver.txt
           git add ./const.go

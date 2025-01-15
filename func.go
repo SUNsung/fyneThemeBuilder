@@ -41,3 +41,15 @@ func (e *ThemeInterfaceObj) GetPrimaryColor() fyne.ThemeColorName {
 	defer e.propertyLock.RUnlock()
 	return e.primaryColor
 }
+
+/* ###################### */
+
+// GetPalette getting the current palette
+func (e *ThemeInterfaceObj) GetPalette() *PaletteObj {
+	return e.paletteMap[e.primaryColor]
+}
+
+// GetMap getting all initialized palettes
+func (e *ThemeInterfaceObj) GetMap() map[fyne.ThemeColorName]*PaletteObj {
+	return e.paletteMap
+}

@@ -31,8 +31,8 @@ jobs:
             ~/go/pkg/mod
             go.sum
             go.sum
-          key: ${{ runner.os }}-go-local
-          restore-keys: ${{ runner.os }}-go-
+          key: ${{ runner.os }}-${{ matrix.go-version }}-local
+          restore-keys: ${{ runner.os }}-${{ matrix.go-version }}-
 
       - name: Cache [macos] init
         if: ${{ matrix.os == 'macos-latest' }}
@@ -43,8 +43,8 @@ jobs:
             ~/go/pkg/mod
             go.sum
             go.sum
-          key: ${{ runner.os }}-go-local
-          restore-keys: ${{ runner.os }}-go-
+          key: ${{ runner.os }}-${{ matrix.go-version }}-local
+          restore-keys: ${{ runner.os }}-${{ matrix.go-version }}-
           enableCrossOsArchive: true
 
       - name: Cache [windows] init
@@ -56,13 +56,13 @@ jobs:
             ~\go\pkg\mod
             go.sum
             go.sum
-          key: ${{ runner.os }}-go-local
-          restore-keys: ${{ runner.os }}-go-
+          key: ${{ runner.os }}-${{ matrix.go-version }}-local
+          restore-keys: ${{ runner.os }}-${{ matrix.go-version }}-
           enableCrossOsArchive: true
 
 ########################################################################################################################
       - name: Goland init
-        uses: WillAbides/setup-go-faster@v1
+        uses: WillAbides/setup-${{ matrix.go-version }}-faster@v1
         with:
           go-version: ${{ matrix.go-version }}
 

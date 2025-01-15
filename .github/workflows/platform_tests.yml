@@ -62,7 +62,7 @@ jobs:
 
 ########################################################################################################################
       - name: Goland init
-        uses: WillAbides/setup-${{ matrix.go-version }}-faster@v1
+        uses: WillAbides/setup-go-faster@v1
         with:
           go-version: ${{ matrix.go-version }}
 

@@ -7,5 +7,14 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SUNsung/fyneThemeBuilder?color=green)
 ![GitHub repo size](https://img.shields.io/github/repo-size/SUNsung/fyneThemeBuilder)
 
-# fyneThemeBuilder
-A handy builder for working with themes in fyne.io
+# fyne.io Theme Builder
+
+This library is written to provide a user-friendly interface to fune.io application designs
+
+## Constructors
+
+All constructors return a structure corresponding to the `fyne.Theme` interface.
+
+### `New(map[fyne.ThemeColorName]*PaletteObj) *ThemeInterfaceObj`.
+
+Initializing a collection of palettes from a structure.

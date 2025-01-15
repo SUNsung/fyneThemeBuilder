@@ -29,16 +29,24 @@ Initializes default palettes
 ## Methods
 
 #### `SetDarkMode(b bool) bool`
+Setting the color mode
 
 #### `GetDarkMode() bool`
+Getting the color mode state
 
 #### `SetPrimaryColor(n fyne.ThemeColorName) bool`
+Set the main theme color.
+- this method switches the topic by title
+- if the passed name is not in the palettes it will return false
 
 #### `GetPrimaryColor() fyne.ThemeColorName`
+Get the name of the main theme color
 
 #### `GetPalette() *PaletteObj`
+Get current palette
 
 #### `GetMap() map[fyne.ThemeColorName]*PaletteObj`
+Get all initialized palettes
 
 ---
 ## Examples

@@ -1,7 +1,16 @@
 name: Platform Tests
-on: [push, pull_request]
 permissions:
   contents: read
+
+on:
+  push, pull_request:
+    paths-ignore:
+      - '**.md'
+      - '**.json'
+      - '**.gitignore'
+      - '*.txt'
+      - '*.sh'
+      - '*.yml'
 
 jobs:
   platform_tests:

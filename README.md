@@ -1,6 +1,4 @@
 ![Fork GitHub Release](https://img.shields.io/github/v/release/SUNsung/fyneThemeBuilder)
-![Tests](https://github.com/SUNsung/fyneThemeBuilder/actions/workflows/platform_tests.yml/badge.svg)
-
 [![Go Report Card](https://goreportcard.com/badge/github.com/SUNsung/fyneThemeBuilder)](https://goreportcard.com/report/github.com/SUNsung/fyneThemeBuilder)
 
 ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/SUNsung/fyneThemeBuilder?color=orange)
@@ -19,33 +17,33 @@ There is a default palette collection `DefaultPalette`. It corresponds to the cu
 
 All constructors return a structure corresponding to the `fyne.Theme` interface.
 
-### `New(map[fyne.ThemeColorName]*PaletteObj) *ThemeInterfaceObj`.
+#### `New(map[fyne.ThemeColorName]*PaletteObj) *ThemeInterfaceObj`.
 Initializing a collection of palettes from a structure.
 
-### `NewOne(primaryColor *PalettePrimaryColorObj, elements *PaletteElementsObj) *ThemeInterfaceObj`
+#### `NewOne(primaryColor *PalettePrimaryColorObj, elements *PaletteElementsObj) *ThemeInterfaceObj`
 Initializes a single palette.
 
-### `NewDefault() *ThemeInterfaceObj`
+#### `NewDefault() *ThemeInterfaceObj`
 Initializes default palettes
 
 ## Methods
 
-### `SetDarkMode(b bool) bool`
+#### `SetDarkMode(b bool) bool`
 
-### `GetDarkMode() bool`
+#### `GetDarkMode() bool`
 
-### `SetPrimaryColor(n fyne.ThemeColorName) bool`
+#### `SetPrimaryColor(n fyne.ThemeColorName) bool`
 
-### `GetPrimaryColor() fyne.ThemeColorName`
+#### `GetPrimaryColor() fyne.ThemeColorName`
 
-### `GetPalette() *PaletteObj`
+#### `GetPalette() *PaletteObj`
 
-### `GetMap() map[fyne.ThemeColorName]*PaletteObj`
+#### `GetMap() map[fyne.ThemeColorName]*PaletteObj`
 
 ---
 ## Examples
 
-### Red standard light theme
+#### Red standard light theme
 ```go
 myApp := app.New()
 myWindow := myApp.NewWindow("window name")
@@ -61,7 +59,7 @@ myWindow.Resize(fyne.NewSize(400, 200))
 myWindow.ShowAndRun()
 ```
 
-### Text size control
+#### Text size control
 ```go
 myApp := app.New()
 myWindow := myApp.NewWindow("window name")
@@ -130,7 +128,7 @@ myWindow.ShowAndRun()
 - 5 seconds after the window is launched, the text size will be doubled.
 
 
-### Loading and saving the theme
+#### Loading and saving the theme
 ```go
 type SaveObj struct {
     IsDarkMode   bool
@@ -186,7 +184,7 @@ myWindow.ShowAndRun()
 - the topic is saved to a file when closing
 - when opening the file, if the topic has been read, the read topic is applied, otherwise the default topic is used.
 
-### 
+#### 
 ```go
 
 ```

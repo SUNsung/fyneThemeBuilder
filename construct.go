@@ -43,6 +43,9 @@ func construct() *ThemeInterfaceObj {
 func New(palette map[fyne.ThemeColorName]*PaletteObj) *ThemeInterfaceObj {
 	obj := construct()
 	obj.paletteMap = palette
+	for _, p := range palette {
+		obj.primaryColor = p.PrimaryColor.Name
+	}
 	return obj
 }
 

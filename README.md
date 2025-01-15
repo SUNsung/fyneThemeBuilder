@@ -17,7 +17,7 @@ There is a default palette collection `DefaultPalette`. It corresponds to the cu
 
 All constructors return a structure corresponding to the `fyne.Theme` interface.
 
-#### `New(map[fyne.ThemeColorName]*PaletteObj) *ThemeInterfaceObj`.
+#### `New(map[fyne.ThemeColorName]*PaletteObj) *ThemeInterfaceObj`
 Initializing a collection of palettes from a structure.
 
 #### `NewOne(primaryColor *PalettePrimaryColorObj, elements *PaletteElementsObj) *ThemeInterfaceObj`
@@ -117,7 +117,7 @@ th.HookSize = func(name fyne.ThemeSizeName) float32 {
 go func() {
     time.Sleep(time.Second*5)
     scale = 2
-	myWindow.Refresh()
+	myWindow.Content().Refresh()
 }()
 
 myWindow.SetContent(container.NewVBox(widget.NewLabel("Hello!")))
@@ -141,7 +141,7 @@ filename := "filename.gob"
 
 data.IsDarkMode = true
 data.PrimaryColor = theme.ColorBlue
-data.PaletteMap = DefaultPalette
+data.PaletteMap = fyneThemeBuilder.DefaultPalette
 
 file, err := os.Open(filename)
 if err == nil {
@@ -184,7 +184,24 @@ myWindow.ShowAndRun()
 - the topic is saved to a file when closing
 - when opening the file, if the topic has been read, the read topic is applied, otherwise the default topic is used.
 
-#### 
+#### a light window that after 5 seconds will change the background color to blue
 ```go
+myApp := app.New()
+myWindow := myApp.NewWindow("window name")
 
+th := fyneThemeBuilder.NewDefault()
+myApp.Settings().SetTheme(th)
+th.SetDarkMode(false)
+th.SetPrimaryColor("red")
+
+go func() {
+time.Sleep(time.Second * 1)
+defTh := th.GetPalette()
+defTh.Elements.Background.Light = color.NRGBA{R: 0x29, G: 0x6f, B: 0xf6, A: 0xff}
+myWindow.Content().Refresh()
+}()
+
+myWindow.SetContent(container.NewVBox(widget.NewLabel("Hello!")))
+myWindow.Resize(fyne.NewSize(400, 200))
+myWindow.ShowAndRun()
 ```

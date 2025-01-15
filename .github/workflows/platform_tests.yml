@@ -107,6 +107,19 @@ jobs:
           xvfb
         if: ${{ runner.os == 'Linux' }}
 
+      - name: Get dependencies
+        run: >-
+          choco install -y
+          bc
+          mingw
+          mesa3d
+          wayland
+          xorg-server
+          xorg-x11-utils
+          libxkbcommon
+        if: ${{ runner.os == 'Windows' }}
+
+
       - name: Tests
         run: ${{ matrix.runner }} go test "-test.benchtime" 10ms -tags "${{ matrix.tags }}" ./...
 

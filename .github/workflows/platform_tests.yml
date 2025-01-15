@@ -56,19 +56,6 @@ jobs:
           restore-keys: ${{ runner.os }}-${{ matrix.go-version }}-
           enableCrossOsArchive: true
 
-      - name: Cache [windows] init
-        if: ${{ matrix.os == 'windows-latest' }}
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~\AppData\Local\go-build
-            ~\go\pkg\mod
-            go.sum
-            go.sum
-          key: ${{ runner.os }}-${{ matrix.go-version }}-local
-          restore-keys: ${{ runner.os }}-${{ matrix.go-version }}-
-          enableCrossOsArchive: true
-
 ########################################################################################################################
       - name: Goland init
         uses: actions/setup-go@v5
@@ -81,14 +68,6 @@ jobs:
           if [ ! -f "go.sum" ]; then
             go mod tidy
           fi
-        working-directory: ${{ github.workspace }}
-
-      - name: go.sum [windows] init
-        if: ${{ matrix.os == 'windows-latest' }}
-        run: |
-          if (-not (Test-Path "go.sum")) {
-            go mod tidy
-          }
         working-directory: ${{ github.workspace }}
 
 ########################################################################################################################
@@ -106,19 +85,6 @@ jobs:
           xorg-dev
           xvfb
         if: ${{ runner.os == 'Linux' }}
-
-      - name: Get dependencies
-        run: >-
-          choco install -y
-          bc
-          mingw
-          mesa3d
-          wayland
-          xorg-server
-          xorg-x11-utils
-          libxkbcommon
-        if: ${{ matrix.os == 'windows-latest' }}
-
 
       - name: Tests
         run: ${{ matrix.runner }} go test "-test.benchtime" 10ms -tags "${{ matrix.tags }}" ./...

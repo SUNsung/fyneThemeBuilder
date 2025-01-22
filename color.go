@@ -1,7 +1,6 @@
 package fyneThemeBuilder
 
 import (
-	"fmt"
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/theme"
 	"image/color"
@@ -23,7 +22,6 @@ func (e *ThemeInterfaceObj) color(n fyne.ThemeColorName) color.Color {
 
 	palette, ok := e.paletteMap[e.primaryColor]
 	if !ok {
-		fmt.Println(e.primaryColor)
 		if e.isDarkMode {
 			return e.parent.Color(n, theme.VariantDark)
 		} else {
